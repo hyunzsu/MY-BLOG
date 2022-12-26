@@ -1,0 +1,28 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .wrap {
+    min-height: -webkit-fill-available;
+  }
+}
+
+header {
+  background-color: salmon;
+}
+main {
+  flex-grow: 1;
+  background-color: slateblue;
+}
+footer {
+  background-color: skyblue;
+}
+
+.max-width {
+  background: rgba(0, 0, 0, 0.5);
+  width: min(calc(var(--max-width) * 1rem), 100%);
+  margin: auto;
+}
