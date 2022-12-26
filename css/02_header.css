@@ -1,77 +1,83 @@
 header {
-  /* background-color: salmon; */
   height: 5em;
-  position: fixed; /* 스크롤 내려도 고정되게 */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
   z-index: 100;
+  background: rgba(var(--rgb-dark), 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
-
 header .max-width {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
 }
-
 header h1 {
-  height: 3.2rem;
-  margin-left: 0; /* 로고 맨 flex-end 영향 안받고 왼쪽에 붙게 */
-  margin-right: auto;
+  margin: auto auto auto 0;
+}
+header h1 a {
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
 }
 
-.profile-btn {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  overflow: hidden; /* 탭 포커스가 네모말고 동그라미로 보임 */
+header h1 a img {
+  width: auto;
+  height: 2em;
 }
 
-.profile-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 이미지가 꺠지지 않게 나오게끔 */
-}
-
-.search-form {
-  flex: 0 0 20rem;
+/* 검색 */
+.search {
   position: relative;
-}
-
-.search-form input {
-  width: 100%;
-  background: none;
-  border: 1px solid rgba(var(--rgb-light), 0.5);
-  height: 4.4rem;
-  border-radius: 2.2rem;
-  box-sizing: border-box;
-  text-indent: 1em;
-  color: #fff;
+  flex: 0 1 12em;
   opacity: 0.5;
   transition: all 0.3s;
 }
-.search-form input:focus {
+.search:hover {
   opacity: 1;
 }
-
-.search-form input::placeholder {
-  color: #fff;
+.search input {
+  width: 100%;
+  height: 3.2em;
+  padding: 0;
+  border: 1px solid rgba(var(--rgb-light), 0.5);
+  border-radius: calc(var(--border-radius) * 5);
+  overflow: hidden;
+  background: none;
+  color: rgb(var(--rgb-light));
+  text-indent: 1em;
 }
-
-.search-form button {
+.search input::placeholder {
+  color: rgb(var(--rgb-light));
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+.search button[type='submit'] {
   position: absolute;
   top: 50%;
-  right: 1.4rem;
+  right: 0.5em;
+  width: 2.2em;
+  height: 2.2em;
+  padding: 0.3em;
   transform: translateY(-50%);
-  border-radius: 50%;
-  width: 3.2rem;
-  height: 3.2rem;
-  padding: 0.6em; /* 포커스 갔을 때 여백 */
+  border-radius: calc(var(--border-radius) * 5);
+}
+.search button[type='submit'] img {
+  width: 100%;
+  height: 100%;
 }
 
-.search-form button img {
+/* 프로필 버튼 */
+.btn-profile {
+  flex-shrink: 0;
+  width: 3.2em;
+  height: 3.2em;
+  border-radius: calc(var(--border-radius) * 5);
+  overflow: hidden;
+}
+.btn-profile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
